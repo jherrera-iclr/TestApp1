@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -21,7 +19,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: PowerShell script
-      uses: Amadevus/pwsh-script@v2.0.1
+    - name: Azure PowerShell Action
+      uses: Azure/powershell@v1
       with:
-        script: Get-ChildItem -Recurse
+        # Specify the Az PowerShell script here.
+        inlineScript: |
+          Get-ChildItem -Recurse
+        # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
+        azPSVersion: latest
