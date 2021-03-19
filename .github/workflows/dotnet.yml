@@ -24,5 +24,4 @@ jobs:
     - name: PowerShell script
       uses: Amadevus/pwsh-script@v2.0.1
       with:
-        script: |
-          Get-ChildItem -Recurse
+        script: Get-ChildItem -Recurse
