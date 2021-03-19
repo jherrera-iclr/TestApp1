@@ -23,6 +23,10 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
       
+    - name: Display the path
+      run: echo ${env:PATH}
+      shell: pwsh
+      
     - name: PowerShell script
       uses: Amadevus/pwsh-script@v2.0.1
       with:
