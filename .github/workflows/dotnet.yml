@@ -20,7 +20,7 @@ jobs:
       run: dotnet restore
       
     - name: Build
-      run: dotnet build -c Release -f netcoreapp3.1 -o /bin/Release/netcoreapp3.1
+      run: dotnet build -c Release -f netcoreapp3.1
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
