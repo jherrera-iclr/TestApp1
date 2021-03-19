@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   pull_request:
     branches: [ main ]
-  
 
 jobs:
   build:
@@ -27,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v2.2.2
       with:
         name: TestApp1
-        path: ../bin/Release/netcoreapp3.1/TestApp1_artifact.zip
+        path: bin/Release/netcoreapp3.1
