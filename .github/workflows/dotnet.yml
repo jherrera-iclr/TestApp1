@@ -1,8 +1,6 @@
 name: .NET
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -21,8 +19,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
     - name: PowerShell script
       uses: Amadevus/pwsh-script@v2.0.1
       with:
