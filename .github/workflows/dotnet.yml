@@ -27,7 +27,7 @@ jobs:
       uses: Amadevus/pwsh-script@v2.0.1
       with:
         script: |
-          Compress-Archive -Path "./bin/Release/*.exe*" -DestinationPath "./TestApp1_artifact.zip"
+          Compress-Archive -Path "./bin/Release/netcoreapp3.1/*.exe*" -DestinationPath "./TestApp1_artifact.zip"
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
