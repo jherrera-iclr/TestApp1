@@ -15,9 +15,22 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        
-    - name: Restore dependencies
-      run: dotnet restore
+    
+    - name: Download workflow artifact
+      uses: dawidd6/action-download-artifact@v2.13.0
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+        workflow: actions.yml
+        repo: jherrera-iclr/icGeneric
+        name: icGeneric
+    
+    - name: Download workflow artifact
+      uses: dawidd6/action-download-artifact@v2.13.0
+      with:
+        github_token: ${{ secrets.ACCESS_TOKEN }}
+        workflow: actions.yml
+        repo: jherrera-iclr/icLogger
+        name: icLogger
       
     - name: Build
       run: dotnet build -c Release -o /build/
