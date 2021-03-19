@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     
-    - name: Download workflow artifact
+    - name: Download icGeneric artifact
       uses: dawidd6/action-download-artifact@v2.13.0
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
@@ -24,7 +24,7 @@ jobs:
         repo: jherrera-iclr/icGeneric
         name: icGeneric
     
-    - name: Download workflow artifact
+    - name: Download icLogger artifact
       uses: dawidd6/action-download-artifact@v2.13.0
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
