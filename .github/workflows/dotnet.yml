@@ -9,20 +9,28 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    env:
-      working-directory: "."
     steps:
     - uses: actions/checkout@v2
+    
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+        
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
     - name: PowerShell script
       uses: Amadevus/pwsh-script@v2.0.1
       with:
         script: |
-          Get-ChildItem -Recurse
+          Compress-Archive -Path "./bin/Release/*.exe*" -DestinationPath "./TestApp1_artifact.zip"
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: TestApp1
+        path: .\bin\Release\netcoreapp3.1\TestApp1_artifact.zip
