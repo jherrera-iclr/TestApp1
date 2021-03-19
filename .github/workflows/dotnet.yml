@@ -26,4 +26,4 @@ jobs:
       uses: actions/upload-artifact@v2.2.2
       with:
         name: TestApp1
-        path: /bin/Release/netcoreapp3.1
+        path: /bin/Release/netcoreapp3.1/*.exe*
